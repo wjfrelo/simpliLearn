@@ -1,0 +1,22 @@
+
+1. Download and run registry image in background:
+# Docker container is run in backgroud, container port 5000 is mapped to host port 5000
+> docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+2. Add Ubuntu image to local registry
+>docker pull ubuntu && docker tag ubuntu localhost:5000/ubuntu
+
+3. Push image to local registry
+> docker push localhost:5000/ubuntu
+
+4. Remove local image 
+> docker images # Get Image ID
+> docker rmi <imageID>
+> docker images # verify image is removed
+
+5. Pull image from local registry
+> docker pull localhost:5000/ubuntu
+
+6. Stop and remove registry container #Not same as delete image
+> docker stop registry && docker rm -v registry
+

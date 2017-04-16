@@ -1,0 +1,42 @@
+#!/bin/bash
+
+1. Create a "Dockerfile":
+> vi Dockerfile
+
+2. Insert the following:
+
+################
+
+FROM docker/whalesay:latest
+
+RUN apt-get -y update && apt-get
+
+CMD /usr/games/fortune -a | cowsay
+
+################
+
+3. Build the docker file:
+> docker build -t <imageName> .
+
+4. Run the docker image:
+> docker run wyatt-simplilearn
+
+5. Create a dockerhub account;
+https://hub.docker.com
+
+6. Tag the docker image:
+> docker tag <imageID> <userName>/<repositoryName>:<versionLabelOrTag>
+
+7. Login to docker Registry
+> docker login #Default docker hub 
+
+8. Push image to Docker Repository:
+> docker push <RepositoryName>
+
+9. Remove "pushed"  local image:
+> docker images # Views list of local repositories
+> docker rmi <imageID>
+
+10 Pull image from Docker Hub:
+> docker pull wjfrelo/<RepositoryName>:<versionLabel>
+>
